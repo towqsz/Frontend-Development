@@ -56,7 +56,7 @@ function throw_out(model, submodel) {
     });
 }
 
-function buy(phone) {
+function buy(phone, database) {
     if (!is_in_database(phone)){
         database.push(phone)
     }
