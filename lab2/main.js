@@ -15,11 +15,9 @@ var database = [
     ];
 
 
-//console.log(is_same(create("Iphone", "8", 1200, 2, true), create("Iphone", "8", 1200, 2, true)));
-// still debugging is_in_database:
+
 console.log(is_in_database(create("Iphone", "8", 1200, 2, true)));
-//buy(create("Iphone", "8", 1200, 2, true));
-//console.log(database);
+
 
 
 function ram_filter(minimal_val) {
