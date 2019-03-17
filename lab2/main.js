@@ -1,11 +1,3 @@
-// obiekt ze swojej dziedziny -> w środku: number, string, boolean
-// kilka funkcji do tego (bazy danych) -> wyszukaj, crud: foreach, filter, pop,
-// push
-//
-// crud - create, read, update, delete
-//
-
-
 var database = [
     create("Iphone", "8", 1200, 2, true),
     create("Nokia", "3310", 800, 0.5, false),
