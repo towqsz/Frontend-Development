@@ -13,11 +13,7 @@ console.log(is_in_database(create("Iphone", "8", 1200, 2, true)));
 
 
 function ram_filter(minimal_val) {
-    function is_big_enough(value) {
-        return value.ram >= minimal_val
-    }
-
-    return database.filter(is_big_enough)
+    return database.filter(value.ram >= minimal_val)
 }
 
 function find_by_model(model) {
@@ -52,13 +48,14 @@ function is_same(phone1, phone2) {
 }
 
 function is_in_database(phone) {
+    var result = false;
     database.forEach(function(item, index, array) {
         if (is_same(item, phone)) {
-            return true
+            result = true;
         }
     });
 
-    return false
+    return result
 }
 
 function create(model, submodel, battery, ram, touch_screen) {
