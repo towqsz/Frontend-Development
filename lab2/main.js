@@ -21,23 +21,11 @@ function ram_filter(minimal_val) {
 }
 
 function find_by_model(model) {
-    var phone_list = [];
-    database.forEach(function(item, index, array) {
-        if (item.model===model) {
-            phone_list.push(item)
-        }
-    });
-    return phone_list
+    return database.filter(value.model === model)
 }
 
 function find_by_submodel(submodel) {
-    var phone_list = [];
-    database.forEach(function(item, index, array) {
-        if (item.submodel===submodel) {
-            phone_list.push(item)
-        }
-    });
-    return phone_list
+    return database.filter(value.submodel === submodel)
 }
 
 function throw_out(model, submodel) {
