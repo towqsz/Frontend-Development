@@ -40,7 +40,7 @@ function buy(phone, database) {
 
 function is_same(phone1, phone2) {
     for(key in phone1){
-        if(phone1[key]!=phone2[key]){
+        if(phone1[key]!==phone2[key]){
             return false
         }
     }
