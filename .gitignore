@@ -16,6 +16,7 @@
 !.nycrc
 !.travis.yml
 !.eslintrc.yaml
+!.babelrc
 
 core
 vgcore.*
@@ -133,5 +134,7 @@ deps/uv/docs/src/guide/
 deps/v8/gypfiles/Debug/
 deps/v8/gypfiles/Release/
 deps/v8/third_party/eu-strip/
+node_modeules
+notex.txt
 
 .DS_Store
