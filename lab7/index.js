@@ -7,15 +7,15 @@ const port = 4000;
 app.use(bodyParser.json());
 const numbers = [];
 app.get('/api/', (req, res) => res.send('Hi there'));
-app.get('/api/numbers/all', (req, res) => {res.send(numbers);});
+app.get('/api/phones/all', (req, res) => {res.send(numbers);});
 
-app.post('/api/numbers', (req, res) => {
+app.post('/api/phones', (req, res) => {
     const number = req.body.number;
     numbers.push(number);
-    res.send({"message": "number has been added"})});
+    res.send({"message": "phone has been added"})});
 
 
-app.post(app.post('/api/numbers/remove', (req, res) => {
+app.post('/api/phones/remove', (req, res) => {
     const number = req.body.number;
     for( let i = 0; i < numbers.length; i++){
         if ( numbers[i] === number) {
@@ -23,5 +23,5 @@ app.post(app.post('/api/numbers/remove', (req, res) => {
             i--;
         }
     }
-    res.send({"message": "number has been removed"})});)
+    res.send({"message": "phone has been removed"})});
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
