@@ -6,22 +6,32 @@ var database = [
     create("Google", "Plus", 1900, 4, true)
     ];
 
-
-
+console.log(database);
+console.log("Filter:");
+console.log(ram_filter(2));
+console.log("Filter by model:");
+console.log(find_by_model("Iphone"));
+console.log("Is in database:");
 console.log(is_in_database(create("Iphone", "8", 1200, 2, true)));
-
+console.log("Add:");
+console.log(buy(create("Iphone", "8", 1200, 2, true)));
+console.log(buy(create("Vodaphone", "8", 1200, 2, true)));
+console.log(database);
+console.log("Remove:");
+throw_out("Iphone", "8");
+console.log(database);
 
 
 function ram_filter(minimal_val) {
-    return database.filter(value.ram >= minimal_val)
+    return database.filter(phone => phone.ram >= minimal_val)
 }
 
 function find_by_model(model) {
-    return database.filter(value.model === model)
+    return database.filter(phone => phone.model === model)
 }
 
 function find_by_submodel(submodel) {
-    return database.filter(value.submodel === submodel)
+    return database.filter(phone => phone.submodel === submodel)
 }
 
 function throw_out(model, submodel) {
@@ -32,10 +42,12 @@ function throw_out(model, submodel) {
     });
 }
 
-function buy(phone, database) {
+function buy(phone) {
     if (!is_in_database(phone)){
-        database.push(phone)
+        database.push(phone);
+        return true
     }
+    return false
 }
 
 function is_same(phone1, phone2) {

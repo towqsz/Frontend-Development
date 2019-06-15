@@ -1,0 +1,61 @@
+poleca postman do stawiania serwera
+
+dorabiamy backend:
+formularz do dodawania
+usuwanie
+coś do wyszukiwania
+nie podpinamy bazy danych (jest in memory - w tablicy)
+
+npm init
+npm install express --save
++ body parser
+npm install nodemon (odświeża serwer)
+
+to, co ostatnio robiliśmy ma być na serwerze -> tworzyć zapytania
+
+
+__________________________________
+lab 8 - potrzebny axios i cors
+- formularz - coś dodawać do bazy
+- w await brakuje /all
+
+finalnie:
+lista samochodów
+na kliknięcie pokazują się details
+formularz - dodaj nowy
+
+
+_____________________
+lab9
+Mamy App
+      |
+    Parent
+    /     \
+ CompA    CompB
+
+ Zrób komunikację CompA <-> CompB (w którąkolwiek stronę)
+
+ "State lifting up"
+ state + handler do zdarzeń w Parentcie (przekazujemy je w props w dół, żeby child mógł zmienić state)
+
+ zad:
+
+ _________
+ | input1 |
+
+ _________
+ | input2 |
+
+ Jak coś zmienimy w input1, to ma się zmienić w input2 i na odwrót
+ I ma przeliczać dolary/pln
+
+
+ Do projektu:
+ spis obiektów
+ details
+ form
+ router - dodać drugą stronę np. about
+ Formik (opcjonalnie)
+ serwer
+ backend
+ Axios
