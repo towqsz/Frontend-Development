@@ -158,3 +158,4 @@ class PhoneManager {
 
 
 export default PhoneManager
+export {PhoneManagerActionType}

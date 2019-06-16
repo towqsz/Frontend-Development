@@ -14,8 +14,7 @@ class Form extends Component {
 
     state = {
         phone: '',
-        asd: '',
-        phones: [],
+        phones: this.props.phones,
         manager: new PhoneManager(),
         model: '',
         submodel: '',
@@ -31,8 +30,7 @@ class Form extends Component {
     async fetchPhones() {
         const values = await axios.get("http://localhost:4000/api/phones/all");
         this.setState(({phones: values.data}));
-        console.log(values);
-        this.handleChange(this.state.phones)
+
     }
 
     handleSubmit = async (event) => {
@@ -42,6 +40,8 @@ class Form extends Component {
         event.preventDefault();
         await axios.post("http://localhost:4000/api/phones", {phone: this.state.phone});
         await this.fetchPhones();
+        this.state.phones.push(this.state.phone);
+        this.handleChange(this.state.phones)
     };
 
     render() {
@@ -49,7 +49,6 @@ class Form extends Component {
             <div className="form">
                 <div>
                     <form onSubmit={this.handleSubmit}>
-                        <label>Enter phone:</label>
                         <p>Model:</p><p> <input
                             value={this.state.model}
                             onChange={event => this.setState({model: event.target.value})}

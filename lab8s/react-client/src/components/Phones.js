@@ -1,6 +1,7 @@
 import React from "react";
 import PhoneManager from "./Api.js"
 import axios from "axios";
+import {PhoneManagerActionType} from './Api'
 
 
 class Phones extends React.Component {
@@ -13,13 +14,14 @@ class Phones extends React.Component {
     };
 
     state = {
-        phones: [],
+        phones: this.props.phones,
         showParameters: {},
-        manager: (new PhoneManager())
+        manager: (new PhoneManager()),
+        delete_phone_id: ''
     };
 
     componentDidMount() {
-        let a = this.fetchPhones();
+        this.setState({phones:this.props.phones});
     }
 
     async fetchPhones() {
@@ -37,24 +39,27 @@ class Phones extends React.Component {
         }));
     };
 
+
     render() {
         return (
             <div>
                 <h1>Phones</h1>
 
                 <div>
-                    {this.state.phones.map(phone => (
+                    {this.props.phones.map(phone => (
                         <div
                             key={phone.id}
                             id={phone.id}
                             onClick={this.handleParameters}
                         >
                             {phone.model} {phone.submodel}
+
                             {this.state.showParameters[phone.id] && (
-                                <div style={{ border: "1px black solid" }}>
-                                    {this.state.manager.get_phone_parameters(phone).map(param => (
+                                <div>
+                                    <p>{this.state.manager.get_phone_parameters(phone).map(param => (
                                         <div>{param}</div>
                                     ))}
+                                    </p>
                                 </div>
                             )}
                         </div>

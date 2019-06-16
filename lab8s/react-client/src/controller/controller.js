@@ -196,7 +196,7 @@ app.get('/api/', (req, res) => res.send('Hi there'));
 app.get('/api/phones/all', (req, res) => {res.send(manager.get_all_phones());});
 
 app.post('/api/phones', (req, res) => {
-    const phone = req.body;
+    const phone = req.body.phone;
     let resp = manager.update_database(new SmartPhone(phone.model, phone.submodel, phone.battery, phone.ram, phone.touch_screen, phone.os, phone.os_version
     ));
     res.send({resp})});
@@ -204,6 +204,7 @@ app.post('/api/phones', (req, res) => {
 
 app.post('/api/phones/remove', (req, res) => {
     const id = req.body.id;
+    console.log(req.body);
     let resp = manager.update_database({id: id}, PhoneManagerActionType.REMOVE);
     res.send({resp})});
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
